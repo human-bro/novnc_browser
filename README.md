@@ -10,10 +10,17 @@ sudo apt upgrade -y
 sudo apt install ubuntu-desktop -y
 ```
 
+> installing vncserver
+```
 sudo apt install tigervnc-standalone-server -y
-
+```
+> setup vncpassword
+```
 vncpasswd
+```
 
+> This sets up the vncservice to run with ubuntu desktop environment
+```
 mkdir -p ~/.vnc
 cat > ~/.vnc/xstartup <<EOF
 #!/bin/bash
@@ -23,41 +30,59 @@ unset DBUS_SESSION_BUS_ADDRESS
 gnome-session --session=ubuntu &
 EOF
 chmod +x ~/.vnc/xstartup
-
-# this is for setting up ubuntu desktop we can either change this a different version of desktop like xfce4
-
+```
+## This is for setting up ubuntu desktop we can either change this a different version of desktop like xfce4
+```
 vncserver :1
 vncserver -kill :1
-
+```
 Or 
 
-
+```
 nohup vncserver :1 -depth 24 -localhost no > vncserver.log 2>&1 & 
-# Just extra parameters
+```
+> OR
+```
+vncserver :1 -depth 24 -localhost no
+```
 
+
+```
 git clone https://github.com/novnc/noVNC.git
-
+```
+> Install websockify
+```
 sudo apt install websockify -y
+```
 
-Here username is root so 
+> Here username is root so
+```
 nohup websockify --web=/home/username/noVNC 80 localhost:5901 > noVNC.log 2>&1 &
-
+```
+> with username
+```
 nohup websockify --web=/home/root/noVNC 80 localhost:5901 > noVNC.log 2>&1 &
-# or try just noVNC this should host the noVNC repo
-Now to access this type 
+```
+> or try just noVNC this should host the noVNC repo
+
+> Now to access this type 
 https://externalip/vnc.html
 Here externalip or public ip the novnc setup can be accessed 
 
+---
+
+## Once executed
 
 
-Once executed
+> You can check if any issue with websockify you can try
 
-
-You can check if any issue with websockify you can try
-
+```
 tail -f noVNC.log
+```
 Here noVNC.log is what nohup is forwarded to
 
-To stop websockify 
+> To stop websockify 
 
+```
 kill websockify
+```
