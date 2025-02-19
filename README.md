@@ -5,7 +5,10 @@ This is used to create a novnc service so that we can stream vnc (desktop enviro
 sudo apt update
 sudo apt upgrade -y
 ```
+> To install Ubuntu desktop you could choose xfce4 for low ram or lighter deployment
+```
 sudo apt install ubuntu-desktop -y
+```
 
 sudo apt install tigervnc-standalone-server -y
 
