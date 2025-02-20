@@ -64,6 +64,12 @@ vncserver :1 -geometry 640x480 -localhost no
 vncserver :1 -geometry 480x320 -localhost no
 ```
 
+> best for most mobile phone 
+
+```
+vncserver :1 -geometry 1080x720 -localhost no
+```
+> or could try 1340x720 or1440x720 these fit perfectly
 
 > Here we use -geometry to change the resolution of the vnc viewer.
 >     
