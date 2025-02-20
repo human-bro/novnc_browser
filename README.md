@@ -46,8 +46,31 @@ nohup vncserver :1 -depth 24 -localhost no > vncserver.log 2>&1 &
 vncserver :1 -depth 24 -localhost no
 ```
 
+> To change the resolution of the vnc desktop environment this will really useful when creating this to use for a mobile phone
+
 
 ```
+vncserver :1 -geometry 800x600 -localhost no
+```
+
+> Or
+
+```
+vncserver :1 -geometry 640x480 -localhost no
+```
+> best fit for mobile screens try lower if needed
+
+```
+vncserver :1 -geometry 480x320 -localhost no
+```
+
+
+> Here we use -geometry to change the resolution of the vnc viewer.
+>     
+> -localhost no : this says the vnc server to accept connection from anywhere if set to `yes` it would only accept machines from the local network it is part of . because we want to Access this with any ip 
+we set it to `no`
+```
+
 git clone https://github.com/novnc/noVNC.git
 ```
 > Install websockify
